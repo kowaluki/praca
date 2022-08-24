@@ -6,7 +6,8 @@
 
     use model\calcClient;
 
-    $calc = new calcClient(1111);
+    $area = ["flooring","brick"];
+    $calc = new calcClient($area,1111);
     $calc->echoP();
 
 ?>
