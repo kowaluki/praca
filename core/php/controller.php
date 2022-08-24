@@ -1,18 +1,43 @@
 <?php
     namespace controller;
-
     include "view.php";
     use view\websiteFiles;
 
     class routing {
-        private string $url;
-        function __construct() {
-            $this->url = "1";
-            $this->launch();
+        private array $url;
+        private string $error = "";
+        function __construct(string $url = "") {
+            strlen($url)==0 ? $url = $_SERVER['REQUEST_URI']: $url;
+            $this->uta($url); #Url to array
+        }
+        public function changeUrl(string $url) {
+           $this->uta($url);
+        }
+
+        private function uta($url) {
+            if(strpos($url,'/')!== false) {
+                $url = explode("/",$url);
+                $this->url = $url;
+            } else {
+                $this->error = "Not explodable url.";
+            }
         }
         function launch() {
-            $website = new websiteFiles("index.html","html","text/html");
-            exit();
+            if(strlen($this->error)!= 0) {
+                echo "Error: ".$this->error;
+            }
+            else {
+                $url = $this->url;
+                switch($url[3]) {
+                    case "":
+                    $website = new websiteFiles("index.html","html","text/html");
+                    break;
+                    default: 
+                        $website = new websiteFiles("404.html","html/errors","text/html");
+                    
+                }
+            }
+            
         }
     }
 

@@ -18,7 +18,6 @@
             $percentage > 100 ? $percentage = 100: $percentage = $percentage;
             $this->percentage = $percentage;
             $this->area = $this->validArea($areas);
-            echo $this->area;
         }
         #valid area
         private function validArea($areas) {
