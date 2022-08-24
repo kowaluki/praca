@@ -4,6 +4,9 @@
     include "core/php/view.php";
     include "core/php/model.php";
 
-    use controller\routing;
+    use model\calcClient;
+
+    $calc = new calcClient(1111);
+    $calc->echoP();
 
 ?>
