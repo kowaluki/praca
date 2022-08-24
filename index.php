@@ -7,12 +7,11 @@
     use view\error;
 
     $error = new error();
-    $error->addNew("997","Psy jadą");
     $error->show();
     // use model\calcClient;
     use controller\routing;
     $routing = new routing();
-    $routing->changeUrl("http://127.0.0.1/strony/praca/aha");
+    $routing->changeUrl("http://127.0.0.1/strony/praca/12345");
     $routing->launch();
     // $area = ["flooring","brick"];
     // $calc = new calcClient($area,1111);
