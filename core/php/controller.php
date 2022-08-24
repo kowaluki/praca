@@ -1,7 +1,8 @@
 <?php
     namespace controller;
-    include "view.php";
+    include_once "view.php";
     use view\websiteFiles;
+    use view\error;
 
     class routing {
         private array $url;
@@ -32,9 +33,8 @@
                     case "":
                     $website = new websiteFiles("index.html","html","text/html");
                     break;
-                    default: 
-                        $website = new websiteFiles("404.html","html/errors","text/html");
-                    
+                    default:
+                        $error = error->show();
                 }
             }
             
