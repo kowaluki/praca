@@ -4,26 +4,29 @@
     use view\websiteFiles;
     use view\error;
 
+
+    //Routing - checking url and redirecting 
+
     class routing {
         private array $url;
         private string $error = "";
         function __construct(string $url = "") {
-            strlen($url)==0 ? $url = $_SERVER['REQUEST_URI']: $url;
-            $this->uta($url); #Url to array
+            strlen($url)==0 ? $url = $_SERVER['REQUEST_URI']: $url; #if you have given no value for url, it autmatically assigns the url from the server.   
+            $this->uta($url); #uta = Url to array
         }
         public function changeUrl(string $url) {
            $this->uta($url);
         }
 
-        private function uta($url) {
-            if(strpos($url,'/')!== false) {
-                $url = explode("/",$url);
+        private function uta($url) { # URL to array
+            if(strpos($url,'/')!== false) { # does the url string have slash inside?
+                $url = explode("/",$url); # yes, he does! split it.
                 $this->url = $url;
             } else {
-                $this->error = "Not explodable url.";
+                $this->error = "Not explodable url."; #no, he doesn't --> ERROR
             }
         }
-        function launch() {
+        function launch() { #Launch means redirecting for inividual classess and functions.
             if(strlen($this->error)!= 0) {
                 echo "Error: ".$this->error;
             }
@@ -34,7 +37,8 @@
                     $website = new websiteFiles("index.html","html","text/html");
                     break;
                     default:
-                        $error = error->show();
+                        $error = new error(404);
+
                 }
             }
             

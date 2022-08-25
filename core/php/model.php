@@ -5,25 +5,29 @@
 
     }
 
+    //Special calculator to calculate the valuation for the cleaned area
+
     class calcClient {
-        private string $area; #Powierzchnia
+        private string $surface; #Powierzchnia
         private int $measurement; #metraż
         private int $percentage; #procent zabrudzenia
         private int $calculations; #ostateczne kalkulacje
 
-        function __construct($areas, $percentage) {
-            #valid $percentage
-            // echo "aha";
+        function __construct($surfaces, $percentage) {
+            //Valid percentage (0 -100)
             $percentage < 0 ? $percentage = 0: $percentage = $percentage;
             $percentage > 100 ? $percentage = 100: $percentage = $percentage;
             $this->percentage = $percentage;
-            $this->area = $this->validArea($areas);
+            //Valid area
+            $this->surface = $this->validSurfaces($surfaces);
         }
-        #valid area
-        private function validArea($areas) {
+        private function validSurfaces($surfaces) { //Valid surface
+
+            //Value depends on the selected surface
+
             $multiplier = 0;
-            foreach($areas as $area) {
-                switch($area) {
+            foreach($surfaces as $surface) {
+                switch($surface) {
                     case "flooring":    #posadzka
                     case "lawn":        #trawnik
                         $multiplier += 1;

@@ -14,29 +14,28 @@
         private $errors = array (
             [404, "not found"]
         );
-        function __construct($number = "") {
+        function __construct($number = "404") {
             if(strlen($number)==0) {
-                echo "nie";
             }
             else {
                 foreach($this->errors as $error) {
                     if($number==$error[0]) {
-                        echo $error[0]." - ".$error[1];
+echo "<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>$error[0] - $error[1]</title>
+</head>
+<body>
+<p>$error[0] - $error[1]</p>
+<p>Back to <a href='http://127.0.0.1/strony/praca'>Home page</a>.</p>
+</body>
+</html>";
                     }
                 }
             }
-            
-        }
-        function addNew($name,$description) {
-            $nowy = array(
-                [$name, $description]
-            );
-            $array = $this->errors;
-            array_push($array,$nowy);
-            $this->errors = $array;
-        }
-        function show() {
-            echo json_encode($this->errors);
         }
     }
 
