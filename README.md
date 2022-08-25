@@ -20,7 +20,7 @@ We need basic files in our websites - html, css, js, xml. In my app we will call
 5. 
 
 In `{file_name}` do not use file extension - we know that scripts
-ends in .js and stylesheets ends in .css.
+ends in .js and stylesheets ends in .css, and so on...
 
 ## Contact
 For my part, that's all for now. I will update this file regulary in future (i hope so :D)
