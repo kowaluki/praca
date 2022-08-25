@@ -73,6 +73,15 @@
                             unset($xml);
                         }
                     break;
+                    case "modules":  //Static for now
+                        if(isset($url[4])) {
+                            $xml = new websiteFiles($url[4].".html","html/modules","text/html");  # *
+                            if($xml->error()) {
+                                $error = new error(404);
+                                unset($error);
+                            }
+                            unset($xml);
+                        }
                     // * we don't use file extension, because we know it has to be js,css, etc.
                     default:
                         $error = new error(404); //not found
