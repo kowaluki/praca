@@ -2,15 +2,29 @@
     namespace view;
 
     class websiteFiles {
+        // Open website files - html, css, js, sounds, pictures
+        private bool $error;
         function __construct(string $fileName, string $location, string $header) {
-            $this->launch($fileName,$location,$header);
+            $this->launch($fileName,$location,$header); 
+            unset($fileName,$location,$header);
         }
         private function launch($fileName, $location, $header) {
-            header("Content-type: ".$header);
-            require_once "core/".$location."/".$fileName;
+            if (!file_exists('core/'.$location.'/'.$fileName )) {
+                $this->error = true;
+            }
+            else {
+                header("Content-type: ".$header);
+                require_once('core/'.$location.'/'.$fileName );
+                $this->error = false;
+            }
+            unset($fileName,$location,$header);
+        }
+        public function error() { 
+            return $this->error;
         }
     }
     class error {
+        // call a specific error.
         private $errors = array (
             [404, "not found"]
         );
@@ -30,12 +44,15 @@ echo "<!DOCTYPE html>
 </head>
 <body>
 <p>$error[0] - $error[1]</p>
-<p>Back to <a href='http://127.0.0.1/strony/praca'>Home page</a>.</p>
+<p>Back to <a href='http://127.0.0.1/strony/praca'>Home page</a>.</p> 
 </body>
 </html>";
+//REMEMBER - IN PRODUCTION MODIFY LINK ADDRESS
                     }
+                    unset($error);
                 }
             }
+            unset($number);
         }
     }
 

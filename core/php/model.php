@@ -20,6 +20,7 @@
             $this->percentage = $percentage;
             //Valid area
             $this->surface = $this->validSurfaces($surfaces);
+            unset($percentage, $surfaces);
         }
         private function validSurfaces($surfaces) { //Valid surface
 
@@ -43,6 +44,7 @@
                     break;
                 }
             }
+            unset($surfaces);
             return $multiplier;
         }
         // private function calc() :void {
