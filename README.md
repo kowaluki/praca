@@ -17,10 +17,18 @@ We need basic files in our websites - html, css, js, xml. In my app we will call
 2. XML files - `/xml/{xml_file_name}`
 3. JavaScript files - `/script/{script_file_name}` 
 4. CSS stylesheets -`/styles/{style_file_name}`
-5. 
+
 
 In `{file_name}` do not use file extension - we know that scripts
 ends in .js and stylesheets ends in .css, and so on...
+
+### We need  some modules, especialy...
+Yes - I created modules, but at the moment just static, in html (I'll correct it, I promise). How to call them?
+`/modules/` and then:
+ * `footer`
+ * `navigation`
+
+You can load modules on website by, for example, jQuery, like that: `$("nav").load("modules/navigation")`.
 
 ## Contact
 For my part, that's all for now. I will update this file regulary in future (i hope so :D)
