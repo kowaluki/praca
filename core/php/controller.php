@@ -43,6 +43,16 @@
                         $website = new websiteFiles("index.html","html","text/html");
                         $unset($website);
                     break;
+                    case "html":
+                        if(isset($url[4])) {
+                            $html = new websiteFiles($url[4].".html","html","text/html"); # *
+                            if($html->error()) {
+                                $error = new error(404);
+                                unset($error);
+                            }
+                            unset($html);
+                        }
+                    break;
                     case "scripts":
                         if(isset($url[4])) {
                             $js = new websiteFiles($url[4].".js","js","application/javascript"); # *
@@ -65,7 +75,7 @@
                     break;
                     case "xml":
                         if(isset($url[4])) {
-                            $xml = new websiteFiles($url[4].".css","css","text/xml");  # *
+                            $xml = new websiteFiles($url[4].".xml","xml","text/xml");  # *
                             if($xml->error()) {
                                 $error = new error(404);
                                 unset($error);
@@ -75,15 +85,17 @@
                     break;
                     case "modules":  //Static for now
                         if(isset($url[4])) {
-                            $xml = new websiteFiles($url[4].".html","html/modules","text/html");  # *
-                            if($xml->error()) {
+                            $modules = new websiteFiles($url[4].".html","html/modules","text/html");  # *
+                            if($modules->error()) {
                                 $error = new error(404);
                                 unset($error);
                             }
-                            unset($xml);
+                            unset($modules);
                         }
                     // * we don't use file extension, because we know it has to be js,css, etc.
+                    break;
                     default:
+                    echo "no nic nie ma";
                         $error = new error(404); //not found
                         unset($error);
                 }
