@@ -43,7 +43,7 @@
                         $website = new websiteFiles("index.html","html","text/html");
                         $unset($website);
                     break;
-                    case "script":
+                    case "scripts":
                         if(isset($url[4])) {
                             $js = new websiteFiles($url[4].".js","js","application/javascript"); # *
                             if($js->error()) {
