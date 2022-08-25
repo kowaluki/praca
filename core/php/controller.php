@@ -23,7 +23,7 @@
         }
 
         private function uta($url) { # URL to array
-            if(strpos($url,'/')!== false) { # does the url string have slash inside?
+            if(strpos($url,'/')!== false) { # does the url string have slash/es inside?
                 $url = explode("/",$url); # yes, he does! split it.
                 $this->url = $url;
             } else {
@@ -61,6 +61,16 @@
                                 unset($error);
                             }
                             unset($css);
+                        }
+                    break;
+                    case "xml":
+                        if(isset($url[4])) {
+                            $xml = new websiteFiles($url[4].".css","css","text/xml");  # *
+                            if($xml->error()) {
+                                $error = new error(404);
+                                unset($error);
+                            }
+                            unset($xml);
                         }
                     break;
                     // * we don't use file extension, because we know it has to be js,css, etc.
