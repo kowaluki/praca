@@ -96,7 +96,6 @@
                     // * we don't use file extension, because we know it has to be js,css, etc.
                     break;
                     default:
-                    echo "no nic nie ma";
                         $error = new error(404); //not found
                         unset($error);
                 }
