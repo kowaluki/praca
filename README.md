@@ -37,6 +37,10 @@ You can load modules on website by, for example, jQuery, like that:
 
 `$("nav").load("modules/navigation")`.
 
+## Activation
+
+I am using that on Apache server on lampp on my notebook on Linux Fedora, in folders `strony/praca/`.
+
 ## Contact
 For my part, that's all for now. I will update this file regulary in future (i hope so :D)
 
