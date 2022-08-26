@@ -67,7 +67,6 @@ In short:
 
 ...and what is the result?
 
-```
 1. [Home page](http://127.0.0.1/strony/praca/)
 2. About:
    * [About Us](http://127.0.0.1/strony/praca/AboutUs)
@@ -75,7 +74,7 @@ In short:
    * Contact:
       * [Via email](mailto:kowaluki1@gmail.com)
       * [Via phone](tel:+48795397851)
-```
+
 
 You can load modules on website by, for example, jQuery, like that:
 
