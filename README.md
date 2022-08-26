@@ -113,7 +113,9 @@ $string = $menu->createMenu();
 
 You can load this menu, e.g., by jQuery:
 
-`$("nav").load("modules/navigation")`.
+```javascript
+$("nav").load("modules/navigation")
+```
 
 ## Activation
 
