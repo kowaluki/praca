@@ -85,6 +85,30 @@ Use that:
 $menu = new myMenu();
 ```
 
+#### options
+ 
+1. You can create your own menu:
+```php
+    $menu->addMenu($myMenu);
+```
+2. You can also add your items to existing items in menu, like: 
+```php
+    $menu->addMenu($myMenu, true);
+```
+3. You can change markups for menu:
+```php
+    $menu->changeMarkups($markup,$newValue)
+```
+for $markup options:
+  * `first` - main tag,
+  * `second` - children tags,
+  * `third` - link tag.
+
+4. You can create menu from JSON to String:
+```php
+$string = $menu->createMenu();
+```
+You can load this menu, e.g., by jQuery:
 
 `$("nav").load("modules/navigation")`.
 
