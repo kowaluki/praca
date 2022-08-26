@@ -61,9 +61,9 @@ Code for menu:
 
 In short: 
 
-1. `Home Page`, `About us` - link name
-2. `noMore` / `more` - attribute specifying whether there will be an indentation in the list or not (inheritance)
-3. More arrays / `127.0.0.1` - More arrays means will be indentation; https address means link
+* `Home Page`, `About us` - link name
+* `noMore` / `more` - attribute specifying whether there will be an indentation in the list or not (inheritance)
+* More arrays / `127.0.0.1` - More arrays means will be indentation; https address means link
 
 ...and what is the result?
 
