@@ -110,6 +110,7 @@ for $markup options:
 ```php
 $string = $menu->createMenu();
 ```
+
 You can load this menu, e.g., by jQuery:
 
 `$("nav").load("modules/navigation")`.
