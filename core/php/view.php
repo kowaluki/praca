@@ -4,7 +4,7 @@
 
     include "model.php";
 
-    use model\myMenu;
+    use model\modules\myMenu;
 
     class websiteFiles {
         // Open website files - html, css, js, sounds, pictures
