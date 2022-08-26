@@ -11,6 +11,8 @@ I am begginer at that, so please - be nice :)  I plan that this application will
 
 I am using clear PHP code (trying use the newest version ,but... I don't know exactly, propably 8) for back-end (front-end i will describe if i will use that - not now).
 
+I prefer non-relational databases like MongoDB because I can send my JSON and the database takes it as is!
+
 ## First steps: REST API
 
 ### Basic website file calls
