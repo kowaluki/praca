@@ -85,7 +85,7 @@ Use that:
 $menu = new myMenu();
 ```
 
-#### options
+#### Options
  
 1. You can create your own menu:
 ```php
