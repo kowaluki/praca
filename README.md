@@ -35,7 +35,12 @@ In `{file_name}` do not use file extension - we know that scripts
 ends in .js and stylesheets ends in .css, and so on...
 
 ### We need some modules!
-Yes - I created modules, but at the moment just one, menu. How to call that?
+
+Yes - I created modules, but at the moment just one...
+
+#### menu
+
+How to call that?
 
 `/modules/navigation`
 
@@ -74,8 +79,8 @@ In short:
    * Contact:
       * [Via email](mailto:kowaluki1@gmail.com)
       * [Via phone](tel:+48795397851)
-      
-### Initializing
+
+##### Initializing
 
 Use that:
 ```php
@@ -87,7 +92,7 @@ use model\modules\myMenu;
 $menu = new myMenu();
 ```
 
-#### Options
+##### Options
  
 1. You can create your own menu:
 ```php
@@ -113,7 +118,7 @@ for $markup options:
 $string = $menu->createMenu();
 ```
 
-### Using
+##### Using
 
 You can load this menu, e.g., by jQuery:
 
