@@ -43,6 +43,10 @@ i am gonna to describe this in the next two days, but you can take a look at the
 
 You can load modules on website by, for example, jQuery, like that:
 
+```
+aaaaa
+```
+
 `$("nav").load("modules/navigation")`.
 
 ## Activation

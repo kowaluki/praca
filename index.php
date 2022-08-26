@@ -1,8 +1,7 @@
 <?php
 
     include_once "core/php/controller.php";
-
-
+    
     use controller\routing;
     // use model\myMenu;
 

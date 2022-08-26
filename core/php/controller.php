@@ -87,13 +87,9 @@
                     case "modules":  //Static for now
                         if(isset($url[4])) {
                             $modules = new modules($url[4]);
-                            // if($modules->error()) {
-                            //     $error = new error(404);
-                            //     unset($error);
-                            // }
-                            // unset($modules);
+                            unset($modules);
                         }
-                    // * we don't use file extension, because we know it has to be js,css, etc.
+                    // * - we don't use file extension, because we know it has to be js,css, etc.
                     break;
                     default:
                         $error = new error(404); //not found
