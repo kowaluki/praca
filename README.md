@@ -93,7 +93,9 @@ $menu = new myMenu();
 ```
 2. You can also add your items to existing items in menu, like: 
 ```php
-    $menu->addMenu($myMenu, true);
+     foreach($myMenu as $partMenu) {
+        $menu->addMenu($partMenu,true);
+    }
 ```
 3. You can change markups for menu:
 ```php
