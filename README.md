@@ -11,7 +11,7 @@ In my previous repository i didn't use README.md and comments too often, so I pr
 
 I have a few projects, but they are not particularly impressive. I prefer to have them for examples of using particular functionalities in future projects.
 
-[a link](https://cv.kowaluki.pl)
+[My previous projects](https://cv.kowaluki.pl).
 
 ## Technologies
 
