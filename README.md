@@ -72,8 +72,8 @@ In short:
  * About Us
  * About App
  * Contact:
- * * Via email
- * * Via phone
+   * Via email
+   * Via phone
 
 
 You can load modules on website by, for example, jQuery, like that:
