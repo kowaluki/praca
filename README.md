@@ -43,7 +43,7 @@ i am gonna to describe this in the next two days, but you can take a look at the
 
 Code for menu: 
 
-```
+```php
 ["Home page","noMore",""],
             ["About:", "more",
                 [
@@ -77,6 +77,10 @@ In short:
 
 
 You can load modules on website by, for example, jQuery, like that:
+
+### Initializing
+
+You can use 
 
 
 `$("nav").load("modules/navigation")`.
