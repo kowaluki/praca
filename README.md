@@ -80,7 +80,10 @@ You can load modules on website by, for example, jQuery, like that:
 
 ### Initializing
 
-You can use 
+Use that:
+```php
+$menu = new myMenu();
+```
 
 
 `$("nav").load("modules/navigation")`.
