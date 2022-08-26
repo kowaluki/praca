@@ -13,10 +13,10 @@ I am begginer at that, so please - be nice :)  I plan that this application will
 
 We need basic files in our websites - html, css, js, xml. In my app we will call them as follows:
 
-1. HTML files - `/websites/{html_file_name}`
-2. XML files - `/xml/{xml_file_name}`
-3. JavaScript files - `/scripts/{script_file_name}` 
-4. CSS stylesheets -`/styles/{style_file_name}`
+1. HTML files - `/websites/{file_name}`
+2. XML files - `/xml/{file_name}`
+3. JavaScript files - `/scripts/{file_name}` 
+4. CSS stylesheets -`/styles/{file_name}`
 
 
 In `{file_name}` do not use file extension - we know that scripts
