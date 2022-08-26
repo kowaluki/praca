@@ -39,13 +39,28 @@ Yes - I created modules, but at the moment just one, menu. How to call that?
 
 `/modules/navigation`
 
-i am gonna to describe this in the next two days, but you can take a look at the examples in index.php
+i am gonna to describe this in the next two days, but you can take a look at the examples in index.php.
+
+Code for menu: 
+
+```
+\["Home page","noMore","http://127.0.0.1/strony/praca/"],
+            ["About", "more",
+                [
+                    ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
+                    ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
+                    ["Contact","more",
+                        [
+                            ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
+                            ["Via phone","noMore","tel:+48795397851"]
+                        ]
+                    ]
+                ]
+            ]
+```
 
 You can load modules on website by, for example, jQuery, like that:
 
-```
-aaaaa
-```
 
 `$("nav").load("modules/navigation")`.
 
