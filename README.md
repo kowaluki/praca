@@ -109,10 +109,10 @@ for $markup options:
 $string = $menu->createMenu();
 ```
 
+### Using
+
 You can load this menu, e.g., by jQuery:
 
-
-### Using
 ```javascript
 $("nav").load("modules/navigation")
 ```
