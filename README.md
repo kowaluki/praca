@@ -74,12 +74,16 @@ In short:
    * Contact:
       * [Via email](mailto:kowaluki1@gmail.com)
       * [Via phone](tel:+48795397851)
-
-
+      
 ### Initializing
 
 Use that:
 ```php
+
+include "model.php";
+
+use model\modules\myMenu;
+
 $menu = new myMenu();
 ```
 
