@@ -44,7 +44,7 @@ i am gonna to describe this in the next two days, but you can take a look at the
 Code for menu: 
 
 ```
-\["Home page","noMore","http://127.0.0.1/strony/praca/"],
+["Home page","noMore","http://127.0.0.1/strony/praca/"],
             ["About", "more",
                 [
                     ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
@@ -58,6 +58,12 @@ Code for menu:
                 ]
             ]
 ```
+
+In short: 
+
+1. `Home Page` - link name
+2. `noMore` / `more` - attribute specifying whether there will be an indentation in the list or not (inheritance)
+3. More arrays / `127.0.0.1` - More arrays means will be indentation; https address means link
 
 You can load modules on website by, for example, jQuery, like that:
 
