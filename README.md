@@ -26,7 +26,7 @@ We need basic files in our websites - html, css, js, xml. In my app we will call
 In `{file_name}` do not use file extension - we know that scripts
 ends in .js and stylesheets ends in .css, and so on...
 
-### We need  some modules!
+### We need some modules!
 Yes - I created modules, but at the moment just one, menu. How to call that?
 
 `/modules/navigation`
