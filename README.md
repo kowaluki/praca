@@ -85,6 +85,8 @@ You can load modules on website by, for example, jQuery, like that:
 
 I am using that on Apache server on lampp on my notebook on Linux Fedora 36 (workstation), in folders `strony/praca/`.
 
+[There are instructions about installing lampp on fedora.](https://computingforgeeks.com/how-to-install-lamp-stack-on-fedora/)
+
 ## Contact
 For my part, that's all for now. I will update this file regulary in future (i hope so :D)
 
