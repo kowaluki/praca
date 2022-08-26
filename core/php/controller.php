@@ -1,11 +1,11 @@
 <?php
     namespace controller;
     
-    include_once "view.php";
+    include "view.php";
 
     use view\websiteFiles;
     use view\error;
-
+    use view\modules;
 
     //Routing - checking url and redirecting 
 
@@ -86,12 +86,12 @@
                     break;
                     case "modules":  //Static for now
                         if(isset($url[4])) {
-                            $modules = new websiteFiles($url[4].".html","html/modules","text/html");  # *
-                            if($modules->error()) {
-                                $error = new error(404);
-                                unset($error);
-                            }
-                            unset($modules);
+                            $modules = new modules($url[4]);
+                            // if($modules->error()) {
+                            //     $error = new error(404);
+                            //     unset($error);
+                            // }
+                            // unset($modules);
                         }
                     // * we don't use file extension, because we know it has to be js,css, etc.
                     break;

@@ -1,5 +1,10 @@
 <?php
+
     namespace view;
+
+    include "model.php";
+
+    use model\myMenu;
 
     class websiteFiles {
         // Open website files - html, css, js, sounds, pictures
@@ -63,6 +68,19 @@ echo "<!DOCTYPE html>
 
     class showRequest {
 
+    }
+
+    class modules {
+        function __construct(string $moduleName) {
+            switch($moduleName) {
+                case "navigation":
+                    $menu = new myMenu();
+                    // $menu->downloadMenu("http://127.0.0.1/download/?modules=navigation");
+                    $show = $menu->createMenu();
+                    echo $show;
+                break;
+            }
+        }
     }
 
 
