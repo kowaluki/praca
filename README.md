@@ -9,6 +9,10 @@ I am begginer at that, so please - be nice :)  I plan that this application will
 
 In my previous repository i didn't use README.md and comments too often, so I prefer to keep it like not doing projects on github.
 
+I have a few projects, but they are not particularly impressive. I prefer to have them for examples of using particular functionalities in future projects.
+
+[a link](https://cv.kowaluki.pl)
+
 ## Technologies
 
 I am using clear PHP code (trying use the newest version ,but... I don't know exactly, propably 8) for back-end (front-end i will describe if i will use that - not now).
