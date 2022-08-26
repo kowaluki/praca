@@ -76,8 +76,6 @@ In short:
       * [Via phone](tel:+48795397851)
 
 
-You can load modules on website by, for example, jQuery, like that:
-
 ### Initializing
 
 Use that:
@@ -113,6 +111,8 @@ $string = $menu->createMenu();
 
 You can load this menu, e.g., by jQuery:
 
+
+### Using
 ```javascript
 $("nav").load("modules/navigation")
 ```
