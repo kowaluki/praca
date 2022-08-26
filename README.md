@@ -67,6 +67,7 @@ In short:
 
 ...and what is the result?
 
+```
 1. Home page
 2. About:
    * About Us
@@ -74,7 +75,7 @@ In short:
    * Contact:
       * Via email
       * Via phone
-
+```
 
 You can load modules on website by, for example, jQuery, like that:
 
