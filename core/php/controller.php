@@ -44,7 +44,7 @@
                         $website = new websiteFiles("index.html","html","text/html");
                         $unset($website);
                     break;
-                    case "html":
+                    case "websites":
                         if(isset($url[4])) {
                             $html = new websiteFiles($url[4].".html","html","text/html"); # *
                             if($html->error()) {
