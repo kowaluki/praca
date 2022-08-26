@@ -15,7 +15,7 @@ We need basic files in our websites - html, css, js, xml. In my app we will call
 
 1. HTML files - `/websites/{html_file_name}`
 2. XML files - `/xml/{xml_file_name}`
-3. JavaScript files - `/script/{script_file_name}` 
+3. JavaScript files - `/scripts/{script_file_name}` 
 4. CSS stylesheets -`/styles/{style_file_name}`
 
 
