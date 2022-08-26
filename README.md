@@ -7,6 +7,8 @@ Hello World!  This is my first seriously project on github.com for my first futu
 
 I am begginer at that, so please - be nice :)  I plan that this application will be used to calculate calculations for customers through the company. It will works also for sign in **( two-factor)**, sign up by a companies, creating users, and many many others :)
 
+In my previous repository i didn't use README.md and comments as well, so I prefer to leave that for example how not to do projects on github.
+
 ## Technologies
 
 I am using clear PHP code (trying use the newest version ,but... I don't know exactly, propably 8) for back-end (front-end i will describe if i will use that - not now).
