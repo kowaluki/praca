@@ -89,17 +89,17 @@ $menu = new myMenu();
  
 1. You can create your own menu:
 ```php
-    $menu->addMenu($myMenu);
+$menu->addMenu($myMenu);
 ```
 2. You can also add your items to existing items in menu, like: 
 ```php
-     foreach($myMenu as $partMenu) {
-        $menu->addMenu($partMenu,true);
-    }
+foreach($myMenu as $partMenu) {
+    $menu->addMenu($partMenu,true);
+}
 ```
 3. You can change markups for menu:
 ```php
-    $menu->changeMarkups($markup,$newValue)
+$menu->changeMarkups($markup,$newValue)
 ```
 for $markup options:
   * `first` - main tag,
