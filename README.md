@@ -44,7 +44,7 @@ i am gonna to describe this in the next two days, but you can take a look at the
 Code for menu: 
 
 ```
-["Home page","noMore","http://127.0.0.1/strony/praca/"],
+["Home page","noMore",""],
             ["About:", "more",
                 [
                     ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
@@ -68,13 +68,13 @@ In short:
 ...and what is the result?
 
 ```
-1. Home page
+1. [Home page](http://127.0.0.1/strony/praca/)
 2. About:
-   * About Us
-   * About App
+   * [About Us](http://127.0.0.1/strony/praca/AboutUs)
+   * [About App](http://127.0.0.1/strony/praca/AboutApp)
    * Contact:
-      * Via email
-      * Via phone
+      * [Via email](mailto:kowaluki1@gmail.com)
+      * [Via phone](tel:+48795397851)
 ```
 
 You can load modules on website by, for example, jQuery, like that:
