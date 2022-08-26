@@ -7,6 +7,10 @@ Hello World!  This is my first seriously project on github.com for my first futu
 
 I am begginer at that, so please - be nice :)  I plan that this application will be used to calculate calculations for customers through the company. It will works also for sign in **( two-factor)**, sign up by a companies, creating users, and many many others :)
 
+## Technologies
+
+I am using clear PHP code for back-end (front-end i will describe if i will use that - not now).
+
 ## First steps: REST API
 
 ### Basic website file calls
@@ -26,6 +30,8 @@ ends in .js and stylesheets ends in .css, and so on...
 Yes - I created modules, but at the moment just one, menu. How to call that?
 
 `/modules/navigation`
+
+i am gonna to describe this in the next two days, but you can take a look at the examples in index.php
 
 You can load modules on website by, for example, jQuery, like that:
 
