@@ -24,7 +24,7 @@
             }
             unset($fileName,$location,$header);
         }
-        public function error() { 
+        public function error() {
             return $this->error;
         }
     }
