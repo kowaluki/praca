@@ -14,7 +14,7 @@
         private string $error = "";
         function __construct(string $url = "") {
             strlen($url)==0 ? $url = $_SERVER['REQUEST_URI']: $url;
-            // if you have given no value for url, it autmatically assigns the url from the server.   
+            // if you have given no value for url, it automatically assigns the url from the server.   
             $this->uta($url); #uta = Url to array
             unset($url);
         }
