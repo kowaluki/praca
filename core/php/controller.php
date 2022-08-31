@@ -4,7 +4,7 @@
     include "view.php";
 
     use view\websiteFiles;
-    use view\error;
+    use view\erroring;
     use view\modules;
 
     //Routing - checking url and redirecting 
@@ -42,13 +42,17 @@
                 switch($url[3]) { #MODIFY IN PRODUCTION ($url[3])
                     case "": //blank
                         $website = new websiteFiles("index.html","html","text/html");
-                        $unset($website);
+                        // if($website->error()) {
+                        //     $error = new erroring(404);
+                        //     unset($error);
+                        // }
+                        // unset($website);
                     break;
                     case "websites":
                         if(isset($url[4])) {
                             $html = new websiteFiles($url[4].".html","html","text/html"); # *
                             if($html->error()) {
-                                $error = new error(404);
+                                $error = new erroring(404);
                                 unset($error);
                             }
                             unset($html);
@@ -58,7 +62,7 @@
                         if(isset($url[4])) {
                             $js = new websiteFiles($url[4].".js","js","application/javascript"); # *
                             if($js->error()) {
-                                $error = new error(404);
+                                $error = new erroring(404);
                                 unset($error);
                             }
                             unset($js);
@@ -68,7 +72,7 @@
                         if(isset($url[4])) {
                             $css = new websiteFiles($url[4].".css","css","text/css");  # *
                             if($css->error()) {
-                                $error = new error(404);
+                                $error = new erroring(404);
                                 unset($error);
                             }
                             unset($css);
@@ -78,7 +82,7 @@
                         if(isset($url[4])) {
                             $xml = new websiteFiles($url[4].".xml","xml","text/xml");  # *
                             if($xml->error()) {
-                                $error = new error(404);
+                                $error = new erroring(404);
                                 unset($error);
                             }
                             unset($xml);
@@ -92,8 +96,9 @@
                     // * - we don't use file extension, because we know it has to be js,css, etc.
                     break;
                     default:
-                        $error = new error(404); //not found
+                        $error = new erroring(404); //not found
                         unset($error);
+                    break;
                 }
                 unset($url);
                 exit();

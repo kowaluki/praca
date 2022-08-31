@@ -19,7 +19,14 @@
             }
             else {
                 header("Content-type: ".$header);
-                require_once('core/'.$location.'/'.$fileName );
+                try {
+                    if(!require_once('core/'.$location.'/'.$fileName )) {
+                        Throw new \Error ("Loading file problem");
+                    }
+                }
+                catch (\Error $e) {
+                    $this->error = $e;
+                }
                 $this->error = false;
             }
             unset($fileName,$location,$header);
@@ -28,7 +35,7 @@
             return $this->error;
         }
     }
-    class error {
+    class erroring {
         // call a specific error.
         private $errors = array (
             [404, "not found"]
