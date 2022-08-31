@@ -78,6 +78,16 @@
                             unset($css);
                         }
                     break;
+                    case "maps":
+                        if(isset($url[4])) {
+                            $js = new websiteFiles($url[4].".map","css","text/css"); # *
+                            if($js->error()) {
+                                $error = new erroring(404);
+                                unset($error);
+                            }
+                            unset($js);
+                        }
+                    break;
                     case "xml":
                         if(isset($url[4])) {
                             $xml = new websiteFiles($url[4].".xml","xml","text/xml");  # *
