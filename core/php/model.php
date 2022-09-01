@@ -67,12 +67,12 @@
     namespace model\modules;
 
     class myMenu {
-        private string $firstMarkup = "ul";
-        private string $secondMarkup = "li";
-        private string $thirdMarkup = "a";
+        protected string $firstMarkup = "ul";
+        protected string $secondMarkup = "li";
+        protected string $thirdMarkup = "a";
 
         //Example menu
-        private array $menu = array(
+        protected array $menu = array(
             ["Home page","noMore","http://127.0.0.1/strony/praca/"],
             ["About:", "more",
                 [
@@ -84,20 +84,6 @@
                 [
                     ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
                     ["Via phone","noMore","tel:+48795397851"],
-                    ["Home page","noMore","http://127.0.0.1/strony/praca/"],
-                    ["About:", "more",
-                        [
-                            ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
-                            ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
-                        ],
-                    ],
-                    ["Contact:","more",
-                        [
-                            ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
-                            ["Via phone","noMore","tel:+48795397851"]
-                        ]
-                        ],
-                    ["Portfolio","noMore","http://127.0.0.1/strony/praca/portfolio"],
                 ]
                 ],
             ["Portfolio","noMore","http://127.0.0.1/strony/praca/portfolio"],
@@ -144,7 +130,7 @@
         }
 
         //List nesting
-        private function subset($menu, $order) { //
+        protected function subset($menu, $order) { //
             $i = 0;
             $return = "";
             foreach($menu as $subset) {
@@ -163,5 +149,72 @@
             }
             return $return;
         }
+    }
+
+    class myFooter extends myMenu {
+
+        protected array $address = array(
+            "companyName" => "nazwa firmy",
+            "companyAddress" => ["miasto, ul./al. nazwa nr.dom./nr.miesz.","kod pocztowy, miasto","nip","regon"],
+            "companyContact" => array("tel" => ["numer","kod kraju"], "E-mail" => "email@email.com")
+        );
+        protected string $error;
+        function __construct(array $address = ["companyName" => "companyName",
+        "companyAddress" => ["miasto","ul./al. nazwa","nr.dom","nr.miesz.","kod pocztowy","miasto","nip","regon"],
+        "companyContact" => array("tel" => ["numer","EN"], "E-mail" => "email@email.com")]) {
+            if(
+                isset($address['companyName']) &&
+                isset($address['companyAddress']) &&
+                count($address['companyAddress'])==8 &&
+                isset($address['companyContact']['tel'])&&
+                isset($address['companyContact']['E-mail']) && 
+                count($address['companyContact']['tel'])==2 &&
+                strlen($address['companyContact']['tel'][1])==2
+            )
+            {
+                $this->address = $address;
+            }
+            else {
+                $this->error = "conditions not met";
+            }
+        }
+        public function changeAddress(string $type, $data) {
+            if(isset($this->address[$type])) {
+                if(is_array($this->address[$type])) {
+                    if(array_equal($data,$this->address[$type])) {
+                        $this->address[$type] = $data;
+                        return true;    
+                    }
+                    else {
+                        $this->error = "not equal arrays";
+                        return false;
+                    }
+                }
+                elseif(is_array($data)) {
+
+                    $this->error = "not recomended array";
+                    return false;
+                }
+                elseif(is_string($data) && is_string($this->address[$type])) {
+                   return true;
+                }
+            }
+            else {
+                $this->error = "Not found this type.";
+                return false;
+            }
+        }
+        public function getError() {
+            return $this->error;
+        }
+
+    }
+
+    function array_equal($a, $b) {
+        return (
+             is_array($a) 
+             && is_array($b) 
+             && count($a) == count($b) 
+        );
     }
 ?>

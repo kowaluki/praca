@@ -5,6 +5,7 @@
     include "model.php";
 
     use model\modules\myMenu;
+    use model\modules\myFooter;
 
     class websiteFiles {
         // Open website files - html, css, js, sounds, pictures
@@ -86,7 +87,20 @@ echo "<!DOCTYPE html>
                     $show = $menu->createMenu();
                     echo $show;
                 break;
+                case "footer":
+                    $footer = new myFooter();
+                    if($footer->changeAddress("companyName",["aha"])) {
+                        echo "tak";
+                    }
+                    else {
+                        echo $footer->getError();
+                    }
+                    
+
+                break;
             }
+
+            exit();
         }
     }
 
