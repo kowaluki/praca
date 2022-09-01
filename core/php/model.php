@@ -74,19 +74,34 @@
         //Example menu
         private array $menu = array(
             ["Home page","noMore","http://127.0.0.1/strony/praca/"],
-            ["About", "more",
+            ["About:", "more",
                 [
                     ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
                     ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
-                    ["Contact","more",
+                ],
+            ],
+            ["Contact:","more",
+                [
+                    ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
+                    ["Via phone","noMore","tel:+48795397851"],
+                    ["Home page","noMore","http://127.0.0.1/strony/praca/"],
+                    ["About:", "more",
+                        [
+                            ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
+                            ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
+                        ],
+                    ],
+                    ["Contact:","more",
                         [
                             ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
                             ["Via phone","noMore","tel:+48795397851"]
                         ]
-                    ]
+                        ],
+                    ["Portfolio","noMore","http://127.0.0.1/strony/praca/portfolio"],
                 ]
-            ],
+                ],
             ["Portfolio","noMore","http://127.0.0.1/strony/praca/portfolio"],
+            
         );
 
         //Add menu or update
@@ -123,23 +138,28 @@
         public function createMenu(string $type = "numeric") { //CSS
             $first = "<$this->firstMarkup style='list-style-type:$type;'>";
             $menu = $first;
-            $menu .= $this->subset($this->menu);
+            $menu .= $this->subset($this->menu,1);
             $menu .= "</$this->firstMarkup>";
             return $menu;
         }
 
         //List nesting
-        private function subset($menu) { //
+        private function subset($menu, $order) { //
+            $i = 0;
             $return = "";
             foreach($menu as $subset) {
                 if($subset[1]==="more") {
-                    $return .= "<$this->secondMarkup>".$subset[0]."<$this->firstMarkup>";
-                    $return .= $this->subset($subset[2]);
-                    $return .= "</$this->firstMarkup></$this->secondMarkup>";
+                    $return .= "<div class='order' id='$order' tabindex='0'><$this->secondMarkup>$subset[0]</$this->secondMarkup>";
+                    $return .= "<$this->firstMarkup>";
+                    $order = $order.$i;
+                    $return .= $this->subset($subset[2],$order);
+                    $return .= "</$this->firstMarkup>";
+                    $return .= "</div>";
                 }
                 elseif($subset[1]==="noMore") {
-                    $return .= "<$this->thirdMarkup href='".$subset[2]."'><$this->secondMarkup>".$subset[0]."</$this->secondMarkup></$this->thirdMarkup>";
+                    $return .= "<$this->thirdMarkup href='$subset[2]'><$this->secondMarkup>$subset[0]</$this->secondMarkup></$this->thirdMarkup>";
                 }
+                $i++;
             }
             return $return;
         }

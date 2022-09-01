@@ -1,3 +1,98 @@
 body {
     margin: 0;
 }
+nav ul {
+    text-align: left!important;
+    padding:0!important;
+    padding-inline-start: 0!important;
+    padding-left: 20px!important;
+}
+nav ul li {
+    cursor: pointer;
+    color: blue;
+}
+nav ul a {
+    color: blue;
+    text-decoration: none;
+}
+header {
+    background-color: crimson;
+}
+footer {
+    background-color: gold;
+}
+main {
+    background-color: darkorchid;
+    text-align: justify;
+    max-height: 80vh;
+    overflow: auto;
+}
+nav ul {
+    background: red
+}
+@media all and (min-width: 767px) {
+    nav ul a ~.order ul {
+        display: none;
+        margin-bottom: 5px;
+    }
+    nav ul a ~.order ul li {
+        opacity: 0;
+        height: 0;
+        box-sizing: border-box;
+        transition: 0.4s ease-in-out;
+        animation: menu 0.5s backwards;
+        animation-delay: 0.75s;
+    }
+    nav a ~.order:focus > ul:nth-child(2), nav a ~.order:hover > ul:nth-child(2) {
+        display: block;
+    }
+    nav a ~.order:focus > ul:nth-child(2) li, nav a ~.order:hover > ul:nth-child(2) li {
+        animation: menu 0.5s forwards;
+        animation-delay: 0.85s;
+    }
+}
+@media all and (max-width:767px) {
+    nav {
+        position: relative;
+        text-align: center!important;
+    }
+    nav ul:first-child {
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        list-style-type: none!important;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    nav .order {
+        position: relative;
+    }
+    nav a ~.order > ul:nth-child(2) li {
+        opacity: 0;
+        height: 0;
+    }
+    nav a ~.order ul:nth-child(2) {
+        top: 0;
+        display: none;
+    }
+    nav a ~.order:focus > ul:nth-child(2), nav a ~.order:hover > ul:nth-child(2) {
+        z-index: +1;
+        display: block;
+    }
+    nav a ~.order:focus > ul:nth-child(2) li, nav a ~.order:hover > ul:nth-child(2) li {
+        animation: menu 0.5s forwards;
+        animation-delay: 0.85s;
+    }
+}
+@keyframes menu {
+    0% {
+        opacity: 0;
+        height: 0;
+    }
+    100% {
+        opacity: 1;
+        height: 20px;
+    }
+}
