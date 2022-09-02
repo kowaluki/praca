@@ -70,7 +70,7 @@
         protected string $firstMarkup = "ul";
         protected string $secondMarkup = "li";
         protected string $thirdMarkup = "a";
-
+        protected string $error;
         //Example menu
         protected array $menu = array(
             ["Home page","noMore","http://127.0.0.1/strony/praca/"],
@@ -93,8 +93,11 @@
         //Add menu or update
         public function addMenu(array $menu, bool $add = false) :void {
             $add === true ? array_push($this->menu, $menu): $this->menu = $menu;
+            // echo json_encode($this->menu);
         }
-
+        public function getError() {
+            return $this->error;
+        }
         //Download menu from other source: GET or POST
         public function downloadMenu(string $url = "/downloadData", bool $add = false, array $data = []) :void {
             count($data)==0 ? $response = http_get($url): $response = httpPost($url, $data);
@@ -150,22 +153,67 @@
             return $return;
         }
     }
+    class mySocial extends myMenu {
+        protected array $social = array(
+            ["social 1","https://www.social1.com/myAccount"],
+            ["social 2","https://www.social2.com/myAccount"],
+            ["social 3","https://www.social3.com/myAccount"]
+        );
+        function __construct(array $social = array()) {
+            $flag = false;
+            foreach($social as $soc) {
+                if(count($soc)!=2) {
+                    $flag = true;
+                }
+            }
+            if($flag) {
+                $this->error = "not recomended array";
+            }
+            else {
+                $this->social = $social;
+            }
+        }
+        protected function addSocial(string $name,string $link) {
+            $new = array($name,$link);
+            array_push($this->social,$new);
+            unset($new,$name,$link);
+        }
+        protected function createSocial() {
+            $soc = "";
+            foreach($this->social as $social) {
+                $soc .= "<div><$this->thirdMarkup href='$social[1]'>$social[0]</$this->thirdMarkup></div>";
+            }
+            return $soc;
+        }
+    }
+    class myAddress extends mySocial {
+        
+    }
 
-    class myFooter extends myMenu {
+    class myFooter extends mySocial {
 
         protected array $address = array(
-            "companyName" => "nazwa firmy",
-            "companyAddress" => ["miasto, ul./al. nazwa nr.dom./nr.miesz.","kod pocztowy, miasto","nip","regon"],
-            "companyContact" => array("tel" => ["numer","kod kraju"], "E-mail" => "email@email.com")
+            "companyName" => "COMPANY NAME",
+            "companyAddress" => [
+                "town",
+                "street",
+                "postalCode",
+                "postalCity",
+                "TIN",
+                "REGON"
+            ],
+            "companyContact" => array(
+                "tel" => ["numer","kod kraju"],
+                "E-mail" => "email@email.com"
+            )
         );
-        protected string $error;
         function __construct(array $address = ["companyName" => "companyName",
-        "companyAddress" => ["miasto","ul./al. nazwa","nr.dom","nr.miesz.","kod pocztowy","miasto","nip","regon"],
+        "companyAddress" => ["miasto","12345","kod pocztowy","miasto","nip","regon"],
         "companyContact" => array("tel" => ["numer","EN"], "E-mail" => "email@email.com")]) {
             if(
                 isset($address['companyName']) &&
                 isset($address['companyAddress']) &&
-                count($address['companyAddress'])==8 &&
+                count($address['companyAddress'])==6 &&
                 isset($address['companyContact']['tel'])&&
                 isset($address['companyContact']['E-mail']) && 
                 count($address['companyContact']['tel'])==2 &&
@@ -204,10 +252,38 @@
                 return false;
             }
         }
-        public function getError() {
-            return $this->error;
+        public function createFooter(array $position) {
+            $menu = $this->createMenu();
+            $address = $this->createAddress();
+            $social = $this->createSocial();
+            $footer = "<div class='footer'>";
+            foreach($position as $pos) {
+                switch($pos) {
+                    case "menu":
+                        echo "<div>$menu</div>";
+                    break;
+                    case "address":
+                        echo  "<div>$address</div>";
+                    break;
+                    case "social":
+                        echo "<div>$social</div>";
+                    break;
+                }
+            }
+            $footer .= "</div>";
+            return $footer;
         }
 
+        protected function createAddress() {
+            $address = $this->address;
+            $return = "<address>";
+            $return .= "<p>".$address['companyName']."</p>";
+            $return .= "<p>".$address['companyAddress'][0].", ".$address['companyAddress'][1]."</p>";
+            $return .= "<p>".$address['companyAddress'][2].", ".$address['companyAddress'][3]."</p>";
+            $return .= "<p>TIN: ".$address['companyAddress'][4]."</p>";
+            $return .= "<p>REGON number: ".$address['companyAddress'][5]."</p>";
+            return $return;
+        }
     }
 
     function array_equal($a, $b) {

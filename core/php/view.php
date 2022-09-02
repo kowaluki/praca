@@ -84,19 +84,50 @@ echo "<!DOCTYPE html>
                 case "navigation":
                     $menu = new myMenu();
                     // $menu->downloadMenu("http://127.0.0.1/download/?modules=navigation");
+                    $newMenuAddSecond = array(
+                        ["Start:", "more", 
+                            [
+                                ["How to start","noMore","#start"],
+                                ["FAQ","noMore","#FAQ"]
+                            ]
+                            ],
+                            ["Something other","noMore","#other"],
+                        ["About:", "more",
+                            [
+                                ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
+                                ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
+                            ],
+                        ],
+                        ["Contact:","more",
+                            [
+                                ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
+                                ["Via phone","noMore","tel:+48795397851"],
+                            ]
+                        ]
+                    );
+                    $menu->addMenu($newMenuAddSecond);
+
                     $show = $menu->createMenu();
                     echo $show;
                 break;
                 case "footer":
                     $footer = new myFooter();
-                    if($footer->changeAddress("companyName",["aha"])) {
-                        echo "tak";
-                    }
-                    else {
-                        echo $footer->getError();
-                    }
-                    
-
+                    $newMenuAddSecond = ["Whatever with other:", "more",
+                            [
+                                ["Other 1", "noMore","other1"],
+                                ["Other 2", "noMore","other2"],
+                                ["Other 3", "noMore","other3"]
+                            ]
+                    ];
+                    $footer->addMenu($newMenuAddSecond);
+                    // if($footer->changeAddress("companyName",["aha"])) {
+                    //     echo "tak";
+                    // }
+                    // else {
+                    //     echo $footer->getError();
+                    // }
+                    $return = $footer->createFooter(['address','menu','social']);
+                    echo $return;
                 break;
             }
 
