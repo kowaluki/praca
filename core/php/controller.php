@@ -109,6 +109,29 @@
                         $error = new erroring(404); //not found
                         unset($error);
                     break;
+                    case "downloadMenu":
+                        $newMenuAddSecond = array(
+                            ["Start:", "more", 
+                                [
+                                    ["How to start","noMore","#start"],
+                                    ["FAQ","noMore","#FAQ"]
+                                ]
+                                ],
+                                ["Something other","noMore","#other"],
+                            ["About:", "more",
+                                [
+                                    ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
+                                    ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
+                                ],
+                            ],
+                            ["Contact:","more",
+                                [
+                                    ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
+                                    ["Via phone","noMore","tel:+48795397851"],
+                                ]
+                            ]
+                        );
+                        echo json_encode($newMenuAddSecond);
                 }
                 unset($url);
                 exit();

@@ -83,43 +83,13 @@ echo "<!DOCTYPE html>
             switch($moduleName) {
                 case "navigation":
                     $menu = new myMenu();
-                    // $menu->downloadMenu("http://127.0.0.1/download/?modules=navigation");
-                    $newMenuAddSecond = array(
-                        ["Start:", "more", 
-                            [
-                                ["How to start","noMore","#start"],
-                                ["FAQ","noMore","#FAQ"]
-                            ]
-                            ],
-                            ["Something other","noMore","#other"],
-                        ["About:", "more",
-                            [
-                                ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
-                                ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
-                            ],
-                        ],
-                        ["Contact:","more",
-                            [
-                                ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
-                                ["Via phone","noMore","tel:+48795397851"],
-                            ]
-                        ]
-                    );
-                    $menu->addMenu($newMenuAddSecond);
-
+                    $menu->downloadMenu("http://127.0.0.1/strony/praca/downloadMenu");
                     $show = $menu->createMenu();
                     echo $show;
                 break;
                 case "footer":
                     $footer = new myFooter();
-                    $newMenuAddSecond = ["Whatever with other:", "more",
-                            [
-                                ["Other 1", "noMore","other1"],
-                                ["Other 2", "noMore","other2"],
-                                ["Other 3", "noMore","other3"]
-                            ]
-                    ];
-                    $footer->addMenu($newMenuAddSecond);
+                    $footer->downloadMenu("http://127.0.0.1/strony/praca/downloadMenu");
                     // if($footer->changeAddress("companyName",["aha"])) {
                     //     echo "tak";
                     // }
@@ -127,7 +97,7 @@ echo "<!DOCTYPE html>
                     //     echo $footer->getError();
                     // }
                     $return = $footer->createFooter(['address','menu','social']);
-                    echo $return;
+                    echo $return;   
                 break;
             }
 

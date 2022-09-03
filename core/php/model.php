@@ -1,5 +1,5 @@
 <?php
-    namespace model;
+    namespace model\functions;
 
     //Special calculator to calculate the valuation for the cleaned area
 
@@ -25,17 +25,17 @@
             $multiplier = 0;
             foreach($surfaces as $surface) {
                 switch($surface) {
-                    case "flooring":    #posadzka
-                    case "lawn":        #trawnik
+                    case"flooring":    #posadzka
+                    case"lawn":        #trawnik
                         $multiplier += 1;
                     break;
-                    case "concrete":    #beton
-                    case "paved":       #bruk
-                    case "brick":       #mur
+                    case"concrete":    #beton
+                    case"paved":       #bruk
+                    case"brick":       #mur
                         $multiplier += 2;
                     break;
-                    case "asphalt":     #asfalt
-                    case "agricult":    #pole rolne
+                    case"asphalt":     #asfalt
+                    case"agricult":    #pole rolne
                         $multiplier += 3;
                     break;
                 }
@@ -66,6 +66,8 @@
 
     namespace model\modules;
 
+    use function model\functions\httpPost;
+
     class myMenu {
         protected string $firstMarkup = "ul";
         protected string $secondMarkup = "li";
@@ -91,32 +93,46 @@
         );
 
         //Add menu or update
-        public function addMenu(array $menu, bool $add = false) :void {
+        public function addMenu(array $menu, bool $add = false) {
             $add === true ? array_push($this->menu, $menu): $this->menu = $menu;
-            // echo json_encode($this->menu);
         }
         public function getError() {
             return $this->error;
         }
         //Download menu from other source: GET or POST
-        public function downloadMenu(string $url = "/downloadData", bool $add = false, array $data = []) :void {
-            count($data)==0 ? $response = http_get($url): $response = httpPost($url, $data);
+        public function downloadMenu(string $url = "/downloadData", bool $add = false, array $data = []) {
+            $response;
+            if(count($data)==0) {
+                $response = httpPost($url, $data);
+            }
+            else {
+                strtolower($data[0]);
+                switch($data[0]){
+                    case "get":
+                        $response = http_get($url);
+                    break;
+                    case "post":
+                        $response = httpPost($url, $data);
+                    break;
+                }
+            }
+            $response = json_decode($response);
             $this->addMenu($response,$add);
         }
 
         //Changing default markups for presenting data in other ways (default: ul, li), examples in index.php
         public function changeMarkups(string $check, string $newValue = "") {
             switch($check) {
-                case "first":
+                case"first":
                     $this->firstMarkup = $newValue;
                 break;
-                case "second":
+                case"second":
                     $this->secondMarkup = $newValue;
                 break;
-                case "third":
+                case"third":
                     $this->thirdMarkup = $newValue;
                 break;
-                case "default":
+                case"default":
                     $this->firstMarkup = "ul";
                     $this->secondMarkup = "li";
                     $this->thirdMarkup = "a";
@@ -125,10 +141,10 @@
 
         //Creating menu from Array to String
         public function createMenu(string $type = "numeric") { //CSS
-            $first = "<$this->firstMarkup style='list-style-type:$type;'>";
+            $first = "<div class='menu'><$this->firstMarkup style='list-style-type:$type;'>";
             $menu = $first;
             $menu .= $this->subset($this->menu,1);
-            $menu .= "</$this->firstMarkup>";
+            $menu .= "</$this->firstMarkup></div>";
             return $menu;
         }
 
@@ -259,13 +275,13 @@
             $footer = "<div class='footer'>";
             foreach($position as $pos) {
                 switch($pos) {
-                    case "menu":
+                    case"menu":
                         echo "<div>$menu</div>";
                     break;
-                    case "address":
+                    case"address":
                         echo  "<div>$address</div>";
                     break;
-                    case "social":
+                    case"social":
                         echo "<div>$social</div>";
                     break;
                 }
@@ -276,10 +292,15 @@
 
         protected function createAddress() {
             $address = $this->address;
+            echo $address['companyContact']['tel'][0];
+            echo $address['companyContact']['tel'][1];
+            $tel = domainToNumber($address['companyContact']['tel'][1]);
             $return = "<address>";
             $return .= "<p>".$address['companyName']."</p>";
             $return .= "<p>".$address['companyAddress'][0].", ".$address['companyAddress'][1]."</p>";
             $return .= "<p>".$address['companyAddress'][2].", ".$address['companyAddress'][3]."</p>";
+            $return .= "<p>E-mail:".$address['companyContact']['E-mail']."</p>";
+            $return .= "<p>Phone number:".$tel.$address['companyContact']['tel'][0]."</p>";
             $return .= "<p>TIN: ".$address['companyAddress'][4]."</p>";
             $return .= "<p>REGON number: ".$address['companyAddress'][5]."</p>";
             return $return;
@@ -293,4 +314,55 @@
              && count($a) == count($b) 
         );
     }
+
+    function domainToNumber($domain) {
+        $domain = strtolower($domain);
+        $code;
+        switch($domain) {
+            case"ac":$code="+247";break;
+            case"ad":$code="+376";break;
+            case"ae":$code="+971";break;
+            case"af":$code="+93";break;
+            case"ag":$code="+1268";break;
+            case"ai":$code="+1264";break;
+            case"al":$code="+355";break;
+            case"am":$code="+374";break;
+            case"ao":$code="+244";break;
+            case"aq":$code="+672";break;
+            case"ar":$code="+54";break;
+            case"as":$code="+1684";break;
+            case"at":$code="+43";break;
+            case"au":$code="+61";break;
+            case"aw":$code="+297";break;
+            case"ax":$code="+358";break;
+            case"pl":
+                $code = "+48";
+            break;
+            case"en":
+                $code = "+44";
+            break;
+            case"de":
+                $code = "+49";
+            break;
+            case"cz":
+                $code ="+420";
+            break;
+            case"sk":
+                $code = "$421";
+            break;
+            case"si":
+                $code = "+386";
+            break;
+            case"ru":
+                $code = "+7";
+            break;
+            case"it":
+                $code = "+39";
+            break;
+            case"fr":
+                $code = "+33";
+            break;
+        }
+        return $code;
+    } 
 ?>

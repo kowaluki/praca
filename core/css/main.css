@@ -1,22 +1,24 @@
 body {
     margin: 0;
 }
-nav ul {
+nav {
+    background: red;
+}
+.menu ul {
     text-align: left!important;
     padding:0!important;
     padding-inline-start: 0!important;
-    background: red;
 }
-nav ul li {
+.menu ul li {
     cursor: pointer;
     color: blue;
     transition: 0.3s ease-in-out;
 }
-nav ul a {
+.menu ul a {
     color: blue;
     text-decoration: none;
 }
-nav ul li:hover {
+.menu ul li:hover {
     background: blue;
     color: blanchedalmond;
 }
@@ -29,21 +31,21 @@ footer {
 main {
     background-color: darkorchid;
     text-align: justify;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow: auto;
 }
 @media all and (min-width: 767px) {
-    nav ul {
+    .menu ul {
         list-style-type: none!important;
     }
-    nav ul:first-child li {
+    .menu ul:first-child li {
         padding: 18px;
     }
-    nav ul .order ul {
+    .menu ul .order ul {
         display: none;
         margin-bottom: 5px;
     }
-    nav ul .order ul li {
+    .menu ul .order ul li {
         opacity: 0;
         height: 0;
         padding: 0!important;
@@ -52,27 +54,27 @@ main {
         animation: menu 0.5s backwards;
         animation-delay: 0.75s;
     }
-    nav .order:focus > ul:nth-child(2), nav .order:hover > ul:nth-child(2) {
+    .menu .order:focus > ul:nth-child(2), .menu .order:hover > ul:nth-child(2) {
         display: block;
     }
-    nav .order:focus > ul:nth-child(2) li, nav .order:hover > ul:nth-child(2) li {
+    .menu .order:focus > ul:nth-child(2) li, .menu .order:hover > ul:nth-child(2) li {
         animation: menu 0.5s forwards;
         animation-delay: 0.55s;
     }
 }
 @media all and (max-width:767px) {
-    nav {
+    .menu {
         position: relative;
         text-align: center!important;
     }
-    nav ul {
+    .menu ul {
         list-style-type: none!important;
     }
-    nav ul li {
+    .menu ul li {
         text-align: center;
     }
     
-    nav ul:first-child {
+    .menu ul:first-child {
         width: 100%;
         position: relative;
         top: 0;
@@ -81,18 +83,18 @@ main {
         flex-direction: row;
         justify-content: space-evenly;
     }
-    nav ul:first-child li {
+    .menu ul:first-child li {
         margin-bottom: 10px!important;
     }
-    nav .order > ul:nth-child(2) li {
+    .menu .order > ul:nth-child(2) li {
         opacity: 0;
         height: 0;
     }
-    nav .order ul:nth-child(2) {
+    .menu .order ul:nth-child(2) {
         top: 0;
         display: none;
     }
-    nav .order:focus > ul:nth-child(2), nav .order:hover > ul:nth-child(2) {
+    .menu .order:focus > ul:nth-child(2), .menu .order:hover > ul:nth-child(2) {
         position: absolute;
         top: calc(100% - 8px);
         display: block;
@@ -101,7 +103,7 @@ main {
         border-bottom-right-radius: 10px;
         padding: 5px!important;
     }
-    nav .order:focus > ul:nth-child(2) li, nav .order:hover > ul:nth-child(2) li {
+    .menu .order:focus > ul:nth-child(2) li, .menu .order:hover > ul:nth-child(2) li {
         animation: menu 0.5s forwards;
         margin: 0!important;
     }
