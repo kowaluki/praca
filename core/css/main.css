@@ -25,9 +25,6 @@ nav {
 header {
     background-color: crimson;
 }
-footer {
-    background-color: gold;
-}
 main {
     background-color: darkorchid;
     text-align: justify;
@@ -39,7 +36,7 @@ main {
         list-style-type: none!important;
     }
     .menu ul:first-child li {
-        padding: 18px;
+        padding: 8px;
     }
     .menu ul .order ul {
         display: none;
@@ -101,7 +98,7 @@ main {
         animation: menuTwo 0.5s forwards;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        padding: 5px!important;
+        padding: 3px!important;
     }
     .menu .order:focus > ul:nth-child(2) li, .menu .order:hover > ul:nth-child(2) li {
         animation: menu 0.5s forwards;
@@ -128,4 +125,14 @@ main {
     100% {
         border: 2px solid blue;
     }
+}
+
+footer {
+    background: gold;
+}
+.footer div ul li {
+    text-align: center;
+}
+address p {
+    margin-block-end: 10px;
 }

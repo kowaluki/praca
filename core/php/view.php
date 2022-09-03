@@ -83,13 +83,13 @@ echo "<!DOCTYPE html>
             switch($moduleName) {
                 case "navigation":
                     $menu = new myMenu();
-                    $menu->downloadMenu("http://127.0.0.1/strony/praca/downloadMenu");
+                    $menu->downloadMenu("http://127.0.0.1/strony/praca/downloadmenu");
                     $show = $menu->createMenu();
                     echo $show;
                 break;
                 case "footer":
                     $footer = new myFooter();
-                    $footer->downloadMenu("http://127.0.0.1/strony/praca/downloadMenu");
+                    $footer->downloadMenu("http://127.0.0.1/strony/praca/downloadmenu");
                     // if($footer->changeAddress("companyName",["aha"])) {
                     //     echo "tak";
                     // }

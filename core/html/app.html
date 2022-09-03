@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min" />
+    <title>App</title>
+</head>
+<body>
+    <header>
+        <h2>App</h2>
+    </header>
+    <main>
+        <div class="container text-center" id="content">
+            <div class="row">
+                <div class="col-md-12 col-lg-6 col-xl-4">
+                    <h3>Cleaned surface data</h3>
+                    <div>
+                        <p>Add new type of surface:</p>
+                        <list>
+
+                        </list>
+                        <select>
+                            <option>flooring</option>
+                            <option>lawn</option>
+                            <option>concrete</option>
+                            <option>paved</option>
+                            <option>brick</option>
+                            <option>asphalt</option>
+                            <option>agricult</option>
+                        </select>
+                        <div class="surface">
+                            <div class="surfaceType">Concret</div><div class="surfaceSpace"><select><option>m<sup>2</sup></option><option>%</option></select></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-4">
+                    <h3>Company and location data</h3>
+                    <div>
+                        <p>Questions (Y/N): (in Polish language):</p>
+                        <ol>
+                            <li>Czy firma ma dodatkową powierzchnię gdzie chciałaby później mieć posprzątane?(Dalsza i rozwojowa współpraca)</li>
+                            <li>Czy firma ma przeznaczoną kanciapę na środki czystości?(magazynek)</li>
+                            <li>Czy firma ma wystarczająco dużą kanciapę dla pracowników?(miejsce przygotowania pracy)</li>
+                            <li>Czy firma ma możliwość do wygodnego przebrania się pracowników?(szatnia)</li>
+                            <li>Czy firma korzysta z naszych usług?(jak długo)</li>
+                            <li>Czy z firmą kontaktujemy się pierwszy raz?(Wcześniejsze akcje)</li>
+                            <li>Czy chcemy dać firmie zniżkę na usługi?(powód)</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-4">
+                    <h3>Data on employed persons</h3>
+                    <div>
+                        <p>Employees</p>
+                        <p>Add new employee</p>
+                        <select>
+                            <option>Normal</option>
+                            <option>Disabled</option>
+                            <option>Student</option>
+                        </select>
+                        <div class="employee">
+                            <div class="employeeType">Student</div>
+                            <div class="typeOfCotract">
+                                <p>Select contract type:</p>
+                                <select>
+                                    <optgroup label="Employment:">
+                                        <option>Employment on indefinite time</option>
+                                        <option>Employment on specified time</option>
+                                        <option>Employment for replacement</option>
+                                    </optgroup>
+                                    <optgroup label="Other:">
+                                        <option>Mandate</option>
+                                        <option>contract work</option>
+                                        <option>without contributions(student)</option>
+                                    </optgroup>
+                                </select>
+                                </div>
+                            <div class="employeeQuantity">
+                                <div class="name">Mandate</div>
+                                <div class="quantity">20</div>
+                                <div class="minus">-</div>
+                                <div class="plus">+</div>
+                            </div>
+                        </div>
+                </div>
+                
+            </div>  <div class="col-md-12 col-lg-6 col-xl-12">
+                <h3>Optional data</h3>
+                <div></div>
+            </div>
+        </div>
+    </main>
+    <script src="scripts/jQuery"></script>
+    <script src="scripts/app"></script>
+</body>
+</html>

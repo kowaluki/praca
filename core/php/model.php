@@ -203,12 +203,7 @@
         }
     }
     class myAddress extends mySocial {
-        
-    }
-
-    class myFooter extends mySocial {
-
-        protected array $address = array(
+         protected array $address = array(
             "companyName" => "COMPANY NAME",
             "companyAddress" => [
                 "town",
@@ -268,21 +263,24 @@
                 return false;
             }
         }
+    }
+
+    class myFooter extends myAddress {
         public function createFooter(array $position) {
             $menu = $this->createMenu();
             $address = $this->createAddress();
-            $social = $this->createSocial();
-            $footer = "<div class='footer'>";
+            $social = $this->createSocial();    
+            $footer = "<div class='footer row justify-content-md-around'>";
             foreach($position as $pos) {
                 switch($pos) {
                     case"menu":
-                        echo "<div>$menu</div>";
+                        $footer.="<div class='col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3'>$menu</div>";
                     break;
                     case"address":
-                        echo  "<div>$address</div>";
+                        $footer.="<div class='col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3'>$address</div>";
                     break;
                     case"social":
-                        echo "<div>$social</div>";
+                        $footer.="<div class='col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3'>$social</div>";
                     break;
                 }
             }
@@ -292,8 +290,6 @@
 
         protected function createAddress() {
             $address = $this->address;
-            echo $address['companyContact']['tel'][0];
-            echo $address['companyContact']['tel'][1];
             $tel = domainToNumber($address['companyContact']['tel'][1]);
             $return = "<address>";
             $return .= "<p>".$address['companyName']."</p>";

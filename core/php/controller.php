@@ -39,14 +39,15 @@
             }
             else {
                 $url = $this->url;
-                switch($url[3]) { #MODIFY IN PRODUCTION ($url[3])
+                $urlLower = strtolower($url[3]);
+                switch($urlLower) { #MODIFY IN PRODUCTION ($url[3])
                     case "": //blank
                         $website = new websiteFiles("index.html","html","text/html");
                         // if($website->error()) {
                         //     $error = new erroring(404);
                         //     unset($error);
                         // }
-                        // unset($website);
+                        unset($website);
                     break;
                     case "websites":
                         if(isset($url[4])) {
@@ -109,7 +110,7 @@
                         $error = new erroring(404); //not found
                         unset($error);
                     break;
-                    case "downloadMenu":
+                    case "downloadmenu":
                         $newMenuAddSecond = array(
                             ["Start:", "more", 
                                 [
@@ -132,6 +133,18 @@
                             ]
                         );
                         echo json_encode($newMenuAddSecond);
+                    break;
+                    case "app":
+                        switch($url[4]) {
+                            case "":
+                                $html = new websiteFiles("app".".html","html","text/html"); # *
+                                if($html->error()) {
+                                    $error = new erroring(404);
+                                    unset($error);
+                                }
+                                unset($html);
+                            break;
+                        }
                 }
                 unset($url);
                 exit();
