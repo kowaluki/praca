@@ -1,0 +1,11 @@
+.surfaceDelete {
+    cursor: pointer;
+    font-weight:600;
+    color: red;
+}
+.surfaceDelete:before {
+    content: "X";
+}
+select, input {
+    text-align: center;
+}

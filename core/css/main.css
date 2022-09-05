@@ -1,15 +1,17 @@
 body {
     margin: 0;
 }
-nav {
-    background: red;
+nav, nav ul {
+    background: red!important;
 }
 .menu ul {
+    background: inherit;
     text-align: left!important;
     padding:0!important;
     padding-inline-start: 0!important;
 }
 .menu ul li {
+    background: inherit;
     cursor: pointer;
     color: blue;
     transition: 0.3s ease-in-out;
@@ -127,7 +129,7 @@ main {
     }
 }
 
-footer {
+footer, footer ul {
     background: gold;
 }
 .footer div ul li {

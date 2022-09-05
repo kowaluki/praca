@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min" />
+    <link rel="stylesheet" type="text/css" href="styles/app" />
     <title>App</title>
 </head>
 <body>
@@ -16,12 +17,10 @@
             <div class="row">
                 <div class="col-md-12 col-lg-6 col-xl-4">
                     <h3>Cleaned surface data</h3>
-                    <div>
-                        <p>Add new type of surface:</p>
-                        <list>
-
-                        </list>
-                        <select>
+                    <div class="row">
+                        <p class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">Add new type of surface:</p>
+                        <select id="surfaceType" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <option value="0" disabled selected>------------</option>
                             <option>flooring</option>
                             <option>lawn</option>
                             <option>concrete</option>
@@ -30,9 +29,9 @@
                             <option>asphalt</option>
                             <option>agricult</option>
                         </select>
-                        <div class="surface">
-                            <div class="surfaceType">Concret</div><div class="surfaceSpace"><select><option>m<sup>2</sup></option><option>%</option></select></div>
-                        </div>
+                    </div>
+                    <div class="row p-3" id="elements">
+                       
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6 col-xl-4">
@@ -93,6 +92,6 @@
         </div>
     </main>
     <script src="scripts/jQuery"></script>
-    <script src="scripts/app"></script>
+    <script type="module" src="scripts/app"></script>
 </body>
 </html>
