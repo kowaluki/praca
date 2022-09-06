@@ -118,13 +118,13 @@
                                     ["FAQ","noMore","#FAQ"]
                                 ]
                                 ],
-                                ["Something other","noMore","#other"],
                             ["About:", "more",
                                 [
                                     ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
                                     ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
                                 ],
                             ],
+                            ["App","noMore","http://127.0.0.1/strony/praca/app"],
                             ["Contact:","more",
                                 [
                                     ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
