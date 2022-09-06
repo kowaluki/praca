@@ -143,9 +143,9 @@ $footer = new myFooter();
 ```
 
 Footer extends functions of:
-* [myMenu](#menu%20(myMenu))
-* [mySocial](#Social%20(mySocial))
-* [myAddress](#Address%20(myAddress))
+* [myMenu](#menu-mymenu)
+* [mySocial](#Social-mysocial)
+* [myAddress](#Address-myaddress)
 
 ### Options 
 
