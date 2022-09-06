@@ -126,9 +126,9 @@ for $markup options:
 $string = $menu->createMenu();
 
 ```
-## Social
+## Social (mySocial)
 not today.
-## Address
+## Address (myAddress)
 not today.
 ## Footer 
 
@@ -144,8 +144,8 @@ $footer = new myFooter();
 
 Footer extends functions of:
 * [myMenu](#menu)
-* [mySocial](#mySocial)
-* [myAddress](#myAddress)
+* [mySocial](#Social)
+* [myAddress](#Address)
 
 ### Options 
 
