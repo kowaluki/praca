@@ -132,6 +132,10 @@ not today.
 not today.
 ## Footer 
 
+Footer is created on bottom of website.
+
+### Initializing
+
 Use that:
 ```php
 
@@ -142,7 +146,8 @@ use model\modules\myFooter;
 $footer = new myFooter();
 ```
 
-Footer os extended functions of:
+
+Footer is extended functions of:
 * [myMenu](#menu-mymenu)
 * [mySocial](#Social-mysocial)
 * [myAddress](#Address-myaddress)
@@ -157,6 +162,7 @@ echo $result;
 ```
 
 With this array we set the order which part is to be embedded.
+
 We have:
 * `menu` - menu from myMenu
 * `social` - links from mySocial
