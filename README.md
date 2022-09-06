@@ -36,7 +36,7 @@ ends in .js and stylesheets ends in .css, and so on...
 
 ### We need some modules!
 
-Yes - I created modules, but at the moment just one...
+Yes - I created modules, but at the moment just a few, and we begining at...
 
 ## menu
 
@@ -44,24 +44,25 @@ How to call that?
 
 `/modules/navigation`
 
-i am gonna to describe this in the next two days, but you can take a look at the examples in index.php.
 
 Code for menu: 
 
 ```php
-["Home page","noMore",""],
-            ["About:", "more",
-                [
-                    ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
-                    ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
-                    ["Contact:","more",
-                        [
-                            ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
-                            ["Via phone","noMore","tel:+48795397851"]
-                        ]
+[
+    ["Home page","noMore",""],
+        ["About:", "more",
+            [
+                ["About Us","noMore","http://127.0.0.1/strony/praca/AboutUs"],
+                ["About App","noMore","http://127.0.0.1/strony/praca/AboutApp"],
+                ["Contact:","more",
+                    [
+                        ["Via e-mail","noMore","mailto:kowaluki1@gmail.com"],
+                        ["Via phone","noMore","tel:+48795397851"]
                     ]
                 ]
             ]
+        ]
+]
 ```
 
 In short: 
@@ -92,6 +93,13 @@ use model\modules\myMenu;
 $menu = new myMenu();
 ```
 
+
+How to call that?
+
+`/modules/navigation`
+
+
+
 ### Options
  
 1. You can create your own menu:
@@ -116,14 +124,51 @@ for $markup options:
 4. You can create menu from JSON to String:
 ```php
 $string = $menu->createMenu();
+
+```
+## Social
+not today.
+## Address
+not today.
+## Footer 
+
+Use that:
+```php
+
+include "model.php";
+
+use model\modules\myFooter;
+
+$footer = new myFooter();
 ```
 
-### Using
+Footer extends functions of:
+* myMenu
+* mySocial
+* myAddress
 
-You can load this menu, e.g., by jQuery:
+### Options 
+
+You can use extended functions from previous modules. Also you have one new function:
+
+```php
+$result = $footer->createFooter("{First_div}","{Second_div}","{Third_div}");
+echo $result;
+```
+
+With this array we set the order which part is to be embedded.
+We have:
+* `menu` - menu from myMenu
+* `social` - links from mySocial
+* `address` - contact details from myAddress
+
+
+## Using
+
+You can load this modules, e.g., by jQuery:
 
 ```javascript
-$("nav").load("modules/navigation")
+$("nav").load("modules/{module_name}")
 ```
 
 ## Activation

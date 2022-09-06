@@ -63,10 +63,70 @@
         curl_close($curl);
         return $response;
     }
+    function array_equal($a, $b) {
+        return (
+             is_array($a) 
+             && is_array($b) 
+             && count($a) == count($b) 
+        );
+    }
+
+    function domainToNumber($domain) {
+        $domain = strtolower($domain);
+        $code;
+        switch($domain) {
+            case"ac":$code="+247";break;
+            case"ad":$code="+376";break;
+            case"ae":$code="+971";break;
+            case"af":$code="+93";break;
+            case"ag":$code="+1268";break;
+            case"ai":$code="+1264";break;
+            case"al":$code="+355";break;
+            case"am":$code="+374";break;
+            case"ao":$code="+244";break;
+            case"aq":$code="+672";break;
+            case"ar":$code="+54";break;
+            case"as":$code="+1684";break;
+            case"at":$code="+43";break;
+            case"au":$code="+61";break;
+            case"aw":$code="+297";break;
+            case"ax":$code="+358";break;
+            case"pl":
+                $code = "+48";
+            break;
+            case"en":
+                $code = "+44";
+            break;
+            case"de":
+                $code = "+49";
+            break;
+            case"cz":
+                $code ="+420";
+            break;
+            case"sk":
+                $code = "$421";
+            break;
+            case"si":
+                $code = "+386";
+            break;
+            case"ru":
+                $code = "+7";
+            break;
+            case"it":
+                $code = "+39";
+            break;
+            case"fr":
+                $code = "+33";
+            break;
+        }
+        return $code;
+    } 
 
     namespace model\modules;
 
     use function model\functions\httpPost;
+    use function model\functions\domainToNumber;
+    use function model\functions\array_equal;
 
     class myMenu {
         protected string $firstMarkup = "ul";
@@ -263,6 +323,19 @@
                 return false;
             }
         }
+        protected function createAddress() {
+            $address = $this->address;
+            $tel = domainToNumber($address['companyContact']['tel'][1]);
+            $return = "<address>";
+            $return .= "<p>".$address['companyName']."</p>";
+            $return .= "<p>".$address['companyAddress'][0].", ".$address['companyAddress'][1]."</p>";
+            $return .= "<p>".$address['companyAddress'][2].", ".$address['companyAddress'][3]."</p>";
+            $return .= "<p>E-mail:".$address['companyContact']['E-mail']."</p>";
+            $return .= "<p>Phone number:".$tel.$address['companyContact']['tel'][0]."</p>";
+            $return .= "<p>TIN: ".$address['companyAddress'][4]."</p>";
+            $return .= "<p>REGON number: ".$address['companyAddress'][5]."</p>";
+            return $return;
+        }
     }
 
     class myFooter extends myAddress {
@@ -288,77 +361,8 @@
             return $footer;
         }
 
-        protected function createAddress() {
-            $address = $this->address;
-            $tel = domainToNumber($address['companyContact']['tel'][1]);
-            $return = "<address>";
-            $return .= "<p>".$address['companyName']."</p>";
-            $return .= "<p>".$address['companyAddress'][0].", ".$address['companyAddress'][1]."</p>";
-            $return .= "<p>".$address['companyAddress'][2].", ".$address['companyAddress'][3]."</p>";
-            $return .= "<p>E-mail:".$address['companyContact']['E-mail']."</p>";
-            $return .= "<p>Phone number:".$tel.$address['companyContact']['tel'][0]."</p>";
-            $return .= "<p>TIN: ".$address['companyAddress'][4]."</p>";
-            $return .= "<p>REGON number: ".$address['companyAddress'][5]."</p>";
-            return $return;
-        }
+        
     }
 
-    function array_equal($a, $b) {
-        return (
-             is_array($a) 
-             && is_array($b) 
-             && count($a) == count($b) 
-        );
-    }
-
-    function domainToNumber($domain) {
-        $domain = strtolower($domain);
-        $code;
-        switch($domain) {
-            case"ac":$code="+247";break;
-            case"ad":$code="+376";break;
-            case"ae":$code="+971";break;
-            case"af":$code="+93";break;
-            case"ag":$code="+1268";break;
-            case"ai":$code="+1264";break;
-            case"al":$code="+355";break;
-            case"am":$code="+374";break;
-            case"ao":$code="+244";break;
-            case"aq":$code="+672";break;
-            case"ar":$code="+54";break;
-            case"as":$code="+1684";break;
-            case"at":$code="+43";break;
-            case"au":$code="+61";break;
-            case"aw":$code="+297";break;
-            case"ax":$code="+358";break;
-            case"pl":
-                $code = "+48";
-            break;
-            case"en":
-                $code = "+44";
-            break;
-            case"de":
-                $code = "+49";
-            break;
-            case"cz":
-                $code ="+420";
-            break;
-            case"sk":
-                $code = "$421";
-            break;
-            case"si":
-                $code = "+386";
-            break;
-            case"ru":
-                $code = "+7";
-            break;
-            case"it":
-                $code = "+39";
-            break;
-            case"fr":
-                $code = "+33";
-            break;
-        }
-        return $code;
-    } 
+    
 ?>
