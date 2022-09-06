@@ -38,7 +38,7 @@ ends in .js and stylesheets ends in .css, and so on...
 
 Yes - I created modules, but at the moment just a few, and we begining at...
 
-## menu
+## menu (myMenu)
 
 How to call that?
 
@@ -144,8 +144,8 @@ $footer = new myFooter();
 
 Footer extends functions of:
 * [myMenu](#menu)
-* mySocial
-* myAddress
+* [mySocial](#mySocial)
+* [myAddress](#myAddress)
 
 ### Options 
 
