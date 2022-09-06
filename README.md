@@ -142,7 +142,7 @@ use model\modules\myFooter;
 $footer = new myFooter();
 ```
 
-Footer extends functions of:
+Footer os extended functions of:
 * [myMenu](#menu-mymenu)
 * [mySocial](#Social-mysocial)
 * [myAddress](#Address-myaddress)
